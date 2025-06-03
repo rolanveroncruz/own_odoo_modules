@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="weekly_sales_plan_action" model="ir.actions.act_window">
+            <field name="name">Weekly Sales Plan</field>
+            <field name="res_model">weekly.sales.plan</field>
+            <field name="view_mode">list,form,calendar</field>
+        </record>
+
+    </data>
+</odoo>

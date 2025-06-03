@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="field_sales_tasks_menu_root" name="Argotek Salesforce">
+            <menuitem id="tasks_first_level_menu" name="First Level">
+                <menuitem id="field_sales_tasks_menu_action" action="field_service_tasks_action" />
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>
+

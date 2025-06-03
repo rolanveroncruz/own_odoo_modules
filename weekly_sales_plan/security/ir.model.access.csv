@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_weekly_sales_plan_base_group_user,Base Group User Access to Weekly Sales Plan,model_weekly_sales_plan,base.group_user,1,1,1,1
+access_wsp_task_base_group_user,Base Group User Access to WSP Task,model_weekly_sales_plan_task,base.group_user,1,1,1,1
+

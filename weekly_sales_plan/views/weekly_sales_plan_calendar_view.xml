@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--
+        1. This is for calendar view.
+        -->
+        <record id="weekly_sales_plan_view_calendar" model="ir.ui.view">
+            <field name="name">Weekly Sales Plan</field>
+            <field name="model">weekly.sales.plan</field>
+            <field name="arch" type="xml">
+            <calendar string="weekly_sales_plan" date_start="start_date">
+                <field name="name"/>
+                <field name="start_date"/>
+            </calendar>
+            </field>
+        </record>
+    </data>
+</odoo>

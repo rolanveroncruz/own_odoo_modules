@@ -1,0 +1,7 @@
+odoo.sql_db: bad query:
+b'INSERT INTO "ir_model_access"
+("active", "create_date", "create_uid", "group_id", "model_id", "name", "perm_create", "perm_read", "perm_unlink", "perm_write", "write_date", "write_uid")
+VALUES
+(true, \'2025-05-30 17:41:51.448140\', 1, 1, 787, \'Base Group User Access to Field Sales Task Type\', true, true, true, true, \'2025-05-30 17:41:51.448140\', 1),
+(true, \'2025-05-30 17:41:51.448140\', 1, 1, DEFAULT, \'Base Group User Access to Field Sales Task Type\', true, true, true, true, \'2025-05-30 17:41:51.448140\', 1),
+(true, \'2025-05-30 17:41:51.448140\', 1, 1, DEFAULT, \'Base Group User Access to Field Sales Task Tag\', true, true, true, true, \'2025-05-30 17:41:51.448140\', 1) RETURNING "id"'

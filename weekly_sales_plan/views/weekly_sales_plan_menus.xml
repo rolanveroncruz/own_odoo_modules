@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="weekly_sales_plan_menu_root" name="Weekly Sales Plan">
+                <menuitem id="weekly_sales_plan_menu_action" action="weekly_sales_plan_action" />
+        </menuitem>
+    </data>
+</odoo>
+

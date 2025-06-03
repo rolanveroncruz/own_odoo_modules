@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--
+        1. This is for form view.
+        -->
+        <record id="field_sales_task_view_form" model="ir.ui.view">
+            <field name="name">field.sales.task.form</field>
+            <field name="model">field.sales.task</field>
+            <field name="arch" type="xml">
+                <form string="Field Service Task">
+<!--                    <header>-->
+<!--                        <field name="state" widget="statusbar" statusbar_visible="new,in_progress,completed"/>-->
+<!--                    </header>-->
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="e.g. Repair AC Unit"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="customer_id"/>
+                                <field name="assigned_to_id"/>
+<!--                                <field name="priority" widget="priority"/>-->
+                            </group>
+                            <group>
+                                <field name="start_datetime"/>
+                                <field name="end_datetime"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Expenses">
+                                <group name="Estimated Expenses">
+                                    <field name="estimated_expenses"/>
+                                </group>
+                                <group name="Description for Expenses">
+                                    <field name="estimated_expenses_desc" placeholder="e.g. Gasoline from Ortigas to Makati"/>
+                                </group>
+                            </page>
+                            <page string="Details">
+                                <group name="More details">
+                                    <field name="description"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+<!--                    <div class="oe_chatter">-->
+<!--                        <field name="message_follower_ids" widget="mail_followers"/>-->
+<!--                        <field name="message_ids" widget="mail_thread"/>-->
+<!--                    </div>-->
+                </form>
+            </field>
+        </record>
+
+
+        <!--
+        2. This is for calendar view.
+        -->
+<!--        <record id="field_service_task_view_calendar" model="ir.ui.view">-->
+<!--            <field name="name">field.sales.task.calendar</field>-->
+<!--            <field name="model">field.sales.task</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <calendar string="Field Service Schedule"-->
+<!--                          date_start="start_datetime"  date_stop="end_datetime"    mode="month"                color="assigned_to_id"      display="[name]"            >-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="assigned_to_id"/>-->
+<!--                    <field name="customer_id"/>-->
+<!--&lt;!&ndash;                    <field name="state"/>&ndash;&gt;-->
+<!--                </calendar>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!--
+        3. This is for search view.
+        -->
+        <record id="field_service_task_view_search" model="ir.ui.view">
+            <field name="name">field.sales.task.search</field>
+            <field name="model">field.sales.task</field>
+            <field name="arch" type="xml">
+                <search string="Search Tasks">
+                    <field name="name" string="Task" filter_domain="['|', ('name', 'ilike', self), ('description', 'ilike', self)]"/>
+                    <field name="customer_id"/>
+                    <field name="assigned_to_id"/>
+                    <filter string="My Tasks" name="my_tasks" domain="[('assigned_to_id', '=', uid)]"/>
+<!--                    <filter string="New Tasks" name="new_tasks" domain="[('state', '=', 'new')]"/>-->
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Assigned To" name="group_by_assigned_to" context="{'group_by': 'assigned_to_id'}"/>
+                        <filter string="Customer" name="group_by_customer" context="{'group_by': 'customer_id'}"/>
+<!--                        <filter string="Status" name="group_by_state" context="{'group_by': 'state'}"/>-->
+                        <filter string="Month" name="group_by_month" context="{'group_by': 'start_datetime:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
