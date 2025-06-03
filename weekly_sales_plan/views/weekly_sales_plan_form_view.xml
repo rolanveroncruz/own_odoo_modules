@@ -34,6 +34,15 @@
                                         <field name="estimated_expenses"/>
                                         <field name="estimated_expenses_desc"/>
                                     </list>
+                                    <calendar date_start="start_datetime" date_stop="end_datetime">
+                                        <field name="name"/>
+                                        <field name="start_datetime"/>
+                                        <field name="end_datetime"/>
+                                        <field name="customer_id"/>
+                                        <field name="estimated_expenses"/>
+                                        <field name="estimated_expenses_desc"/>
+
+                                    </calendar>
                                     <form>
                                         <group>
                                             <field name="name"/>
