@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-from datetime import timedelta
+from datetime import timedelta, datetime
+
 
 class WeeklySalesPlan(models.Model):
     _name = 'weekly.sales.plan'
@@ -7,7 +8,8 @@ class WeeklySalesPlan(models.Model):
     _order = 'start_date desc' # Good practice for list views
 
     name = fields.Char(string='Plan Name', required=True)
-    start_date = fields.Date(string='Start Date', required=True)
+    start_date = fields.Date(string='Start Date (computed)', compute='_compute_start_date', store=True)
+    end_date = fields.Date(string='End Date (computed)', compute='_compute_end_date', store=True)
 
     # New computed field for the nearest Monday
     nearest_monday_date = fields.Date(
@@ -39,3 +41,21 @@ class WeeklySalesPlan(models.Model):
                     self.nearest_monday_date = task.start_datetime+ timedelta(days=days_to_add)
             else:
                 self.nearest_monday_date = False
+
+    @api.depends('task_ids.end_datetime')
+    def _compute_end_date(self):
+        for record in self:
+            temp_end_date = datetime.min
+            for task in record.task_ids:
+                if task.end_datetime >temp_end_date:
+                    temp_end_date = task.end_datetime
+            record.end_date = temp_end_date
+
+    @api.depends('task_ids.start_datetime')
+    def _compute_start_date(self):
+        for record in self:
+            temp_start_date = datetime.max
+            for task in record.task_ids:
+                if task.start_datetime < temp_start_date:
+                    temp_start_date = task.start_datetime
+            record.start_date = temp_start_date

@@ -8,11 +8,10 @@ class WeeklySalesPlanTask(models.Model):
 
     name = fields.Char(string='Task Name', required=True, help="A brief name for the task.")
     description = fields.Text(string='Details', help="Detailed description of the task.")
-    start_datetime = fields.Datetime(string='Scheduled Start', required=True, default=fields.Datetime.now,
+    start_datetime = fields.Datetime(string='Planned Start', required=True, default=fields.Datetime.now,
                                      help="The planned start date and time for the task.")
 
-
-    end_datetime = fields.Datetime(string='Scheduled End',
+    end_datetime = fields.Datetime(string='Planned End',
                                    help="The planned end date and time for the task. If empty, considered instantaneous or open-ended.")
     assigned_to_id = fields.Many2one('res.users', string='Assigned To', default=lambda self: self.env.user,
                                      help="The salesperson or user assigned to this task.")
@@ -21,7 +20,6 @@ class WeeklySalesPlanTask(models.Model):
     estimated_expenses = fields.Float(string='Estimated Expense', help="The estimated total cost of the task.")
     estimated_expenses_desc = fields.Text(string='Description for Estimated Expense',
                                           help="The estimated total cost of the task.")
-
     weekly_plan_id = fields.Many2one(
         'weekly.sales.plan',  # 'comodel_name': The name of the related model (master model)
         string='Weekly Plan',
