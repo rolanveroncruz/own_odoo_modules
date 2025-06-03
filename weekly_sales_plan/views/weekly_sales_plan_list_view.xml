@@ -8,7 +8,7 @@
             <field name="name">weekly.sales.plan.list</field>
             <field name="model">weekly.sales.plan</field>
             <field name="arch" type="xml">
-                <list string="weekly_sales_plan_list">
+                <list string="weekly_sales_plan_list" default_order="start_date">
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="end_date"/>

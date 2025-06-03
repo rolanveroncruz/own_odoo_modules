@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/weekly_sales_plan_form_view.xml',
         'views/weekly_sales_plan_list_view.xml',
+        'views/weekly_sales_plan_calendar_view.xml',
         'views/weekly_sales_plan_actions.xml',
         'views/weekly_sales_plan_menus.xml',
     ],
