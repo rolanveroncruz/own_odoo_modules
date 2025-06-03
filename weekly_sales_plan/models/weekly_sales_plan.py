@@ -10,6 +10,7 @@ class WeeklySalesPlan(models.Model):
     name = fields.Char(string='Plan Name', required=True)
     start_date = fields.Date(string='Start Date (computed)', compute='_compute_start_date', store=True)
     end_date = fields.Date(string='End Date (computed)', compute='_compute_end_date', store=True)
+    total_estimated_expenses = fields.Float(string='Estimated Expenses', compute='_compute_estimated_expenses', store=True)
 
     # New computed field for the nearest Monday
     nearest_monday_date = fields.Date(
@@ -59,3 +60,13 @@ class WeeklySalesPlan(models.Model):
                 if task.start_datetime < temp_start_date:
                     temp_start_date = task.start_datetime
             record.start_date = temp_start_date
+
+    @api.depends('task_ids.estimated_expenses')
+    def _compute_estimated_expenses(self):
+        for record in self:
+            total_expenses = 0
+            for task in record.task_ids:
+                total_expenses += task.estimated_expenses
+            record.total_estimated_expenses = total_expenses
+
+

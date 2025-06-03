@@ -20,6 +20,7 @@
                             <group>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
+                                <field name="total_estimated_expenses"/>
                             </group>
                         </group>
                         <notebook>
