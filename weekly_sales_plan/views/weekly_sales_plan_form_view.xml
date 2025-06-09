@@ -27,31 +27,26 @@
                             <page string="Tasks">
                                 <field name="task_ids">
                                     <list editable="bottom" default_order="start_datetime">
-                                        <field name="name"/>
+                                        <field name="task_name"/>
                                         <field name="start_datetime"/>
                                         <field name="end_datetime"/>
                                         <field name="customer_id"/>
-                                        <field name="estimated_expenses"/>
-                                        <field name="estimated_expenses_desc"/>
+                                        <field name="fuel_expenses"/>
+                                        <field name="food_expenses"/>
+                                        <field name="representation_expenses"/>
+                                        <field name="toll_expenses"/>
+                                        <field name="rental_expenses"/>
+                                        <field name="lodging_expenses"/>
+                                        <field name="other_expenses"/>
                                     </list>
-                                    <calendar date_start="start_datetime" date_stop="end_datetime">
-                                        <field name="name"/>
-                                        <field name="start_datetime"/>
-                                        <field name="end_datetime"/>
-                                        <field name="customer_id"/>
-                                        <field name="estimated_expenses"/>
-                                        <field name="estimated_expenses_desc"/>
-
-                                    </calendar>
                                     <form>
                                         <group>
-                                            <field name="name"/>
+                                            <field name="task_name"/>
                                             <field name="description"/>
                                             <field name="start_datetime"/>
                                             <field name="end_datetime"/>
                                             <field name="customer_id"/>
-                                            <field name="estimated_expenses"/>
-                                            <field name="estimated_expenses_desc"/>
+                                            <field name="fuel_expenses"/>
                                         </group>
                                     </form>
                                 </field>

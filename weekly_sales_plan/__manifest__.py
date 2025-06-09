@@ -9,7 +9,7 @@
     'category': 'Argotek',
     'license': 'LGPL-3',
     'depends': [
-        'base_setup',
+        'base_setup','crm',
     ],
     'data': [
         'security/ir.model.access.csv',
